@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CEC26C11177EE1B30075F3E4 /* TCDetailsTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC26C0F177EE1B30075F3E4 /* TCDetailsTaskViewController.m */; };
-		CEC26C12177EE1B30075F3E4 /* TCDetailsTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC26C10177EE1B30075F3E4 /* TCDetailsTaskViewController.xib */; };
-		CEDCFE35177741A30094A09A /* TCListDaysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDCFE34177741A30094A09A /* TCListDaysViewController.m */; };
-		CEDCFE38177757290094A09A /* TCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDCFE37177757290094A09A /* TCSettingsViewController.m */; };
-		CEDCFE3B17775B950094A09A /* TCSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDCFE3A17775B950094A09A /* TCSettingsCell.m */; };
-		CEDCFE3D17775BC20094A09A /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDCFE3C17775BC20094A09A /* SettingsCell.xib */; };
-		CEDCFE42177761640094A09A /* SettingDayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDCFE41177761640094A09A /* SettingDayModel.m */; };
-		CEDE2D04177ECACB00ED3486 /* TCListTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDE2D03177ECACB00ED3486 /* TCListTasksViewController.m */; };
-		CEF082E6178006C0004F9B1D /* SettingDays.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF082E5178006C0004F9B1D /* SettingDays.m */; };
+		CEA004611799273D00B6AC25 /* TCDetailsTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0045A1799273D00B6AC25 /* TCDetailsTaskViewController.m */; };
+		CEA004621799273D00B6AC25 /* TCListDaysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0045C1799273D00B6AC25 /* TCListDaysViewController.m */; };
+		CEA004631799273D00B6AC25 /* TCListTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0045E1799273D00B6AC25 /* TCListTasksViewController.m */; };
+		CEA004641799273D00B6AC25 /* TCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA004601799273D00B6AC25 /* TCSettingsViewController.m */; };
+		CEA0046D1799274E00B6AC25 /* SettingDayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA004691799274E00B6AC25 /* SettingDayModel.m */; };
+		CEA0046E1799274E00B6AC25 /* SettingDays.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0046B1799274E00B6AC25 /* SettingDays.m */; };
+		CEA004741799275700B6AC25 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA004701799275700B6AC25 /* SettingsCell.xib */; };
+		CEA004751799275700B6AC25 /* TCDetailsTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA004711799275700B6AC25 /* TCDetailsTaskViewController.xib */; };
+		CEA004761799275700B6AC25 /* TCSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA004731799275700B6AC25 /* TCSettingsCell.m */; };
 		CEF422C217492E8200C98394 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF422C117492E8200C98394 /* UIKit.framework */; };
 		CEF422C417492E8200C98394 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF422C317492E8200C98394 /* Foundation.framework */; };
 		CEF422C617492E8200C98394 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF422C517492E8200C98394 /* CoreGraphics.framework */; };
@@ -28,22 +28,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CEC26C0E177EE1B30075F3E4 /* TCDetailsTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDetailsTaskViewController.h; sourceTree = "<group>"; };
-		CEC26C0F177EE1B30075F3E4 /* TCDetailsTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCDetailsTaskViewController.m; sourceTree = "<group>"; };
-		CEC26C10177EE1B30075F3E4 /* TCDetailsTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCDetailsTaskViewController.xib; sourceTree = "<group>"; };
-		CEDCFE33177741A30094A09A /* TCListDaysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCListDaysViewController.h; sourceTree = "<group>"; };
-		CEDCFE34177741A30094A09A /* TCListDaysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCListDaysViewController.m; sourceTree = "<group>"; };
-		CEDCFE36177757290094A09A /* TCSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSettingsViewController.h; sourceTree = "<group>"; };
-		CEDCFE37177757290094A09A /* TCSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSettingsViewController.m; sourceTree = "<group>"; };
-		CEDCFE3917775B950094A09A /* TCSettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSettingsCell.h; sourceTree = "<group>"; };
-		CEDCFE3A17775B950094A09A /* TCSettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSettingsCell.m; sourceTree = "<group>"; };
-		CEDCFE3C17775BC20094A09A /* SettingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
-		CEDCFE40177761640094A09A /* SettingDayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingDayModel.h; sourceTree = "<group>"; };
-		CEDCFE41177761640094A09A /* SettingDayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingDayModel.m; sourceTree = "<group>"; };
-		CEDE2D02177ECACB00ED3486 /* TCListTasksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCListTasksViewController.h; sourceTree = "<group>"; };
-		CEDE2D03177ECACB00ED3486 /* TCListTasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCListTasksViewController.m; sourceTree = "<group>"; };
-		CEF082E4178006C0004F9B1D /* SettingDays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingDays.h; sourceTree = "<group>"; };
-		CEF082E5178006C0004F9B1D /* SettingDays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingDays.m; sourceTree = "<group>"; };
+		CEA004591799273D00B6AC25 /* TCDetailsTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDetailsTaskViewController.h; sourceTree = "<group>"; };
+		CEA0045A1799273D00B6AC25 /* TCDetailsTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCDetailsTaskViewController.m; sourceTree = "<group>"; };
+		CEA0045B1799273D00B6AC25 /* TCListDaysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCListDaysViewController.h; sourceTree = "<group>"; };
+		CEA0045C1799273D00B6AC25 /* TCListDaysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCListDaysViewController.m; sourceTree = "<group>"; };
+		CEA0045D1799273D00B6AC25 /* TCListTasksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCListTasksViewController.h; sourceTree = "<group>"; };
+		CEA0045E1799273D00B6AC25 /* TCListTasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCListTasksViewController.m; sourceTree = "<group>"; };
+		CEA0045F1799273D00B6AC25 /* TCSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSettingsViewController.h; sourceTree = "<group>"; };
+		CEA004601799273D00B6AC25 /* TCSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSettingsViewController.m; sourceTree = "<group>"; };
+		CEA004681799274E00B6AC25 /* SettingDayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingDayModel.h; sourceTree = "<group>"; };
+		CEA004691799274E00B6AC25 /* SettingDayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingDayModel.m; sourceTree = "<group>"; };
+		CEA0046A1799274E00B6AC25 /* SettingDays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingDays.h; sourceTree = "<group>"; };
+		CEA0046B1799274E00B6AC25 /* SettingDays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingDays.m; sourceTree = "<group>"; };
+		CEA004701799275700B6AC25 /* SettingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
+		CEA004711799275700B6AC25 /* TCDetailsTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCDetailsTaskViewController.xib; sourceTree = "<group>"; };
+		CEA004721799275700B6AC25 /* TCSettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSettingsCell.h; sourceTree = "<group>"; };
+		CEA004731799275700B6AC25 /* TCSettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSettingsCell.m; sourceTree = "<group>"; };
 		CEF422BE17492E8200C98394 /* TrainingCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainingCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF422C117492E8200C98394 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF422C317492E8200C98394 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -73,48 +73,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CEC26C13177EE1E40075F3E4 /* controllers */ = {
+		CEA004581799273D00B6AC25 /* controlles */ = {
 			isa = PBXGroup;
 			children = (
-				CEDE2D02177ECACB00ED3486 /* TCListTasksViewController.h */,
-				CEDE2D03177ECACB00ED3486 /* TCListTasksViewController.m */,
-				CEC26C0E177EE1B30075F3E4 /* TCDetailsTaskViewController.h */,
-				CEC26C0F177EE1B30075F3E4 /* TCDetailsTaskViewController.m */,
-				CEDCFE33177741A30094A09A /* TCListDaysViewController.h */,
-				CEDCFE34177741A30094A09A /* TCListDaysViewController.m */,
-				CEDCFE36177757290094A09A /* TCSettingsViewController.h */,
-				CEDCFE37177757290094A09A /* TCSettingsViewController.m */,
+				CEA004591799273D00B6AC25 /* TCDetailsTaskViewController.h */,
+				CEA0045A1799273D00B6AC25 /* TCDetailsTaskViewController.m */,
+				CEA0045B1799273D00B6AC25 /* TCListDaysViewController.h */,
+				CEA0045C1799273D00B6AC25 /* TCListDaysViewController.m */,
+				CEA0045D1799273D00B6AC25 /* TCListTasksViewController.h */,
+				CEA0045E1799273D00B6AC25 /* TCListTasksViewController.m */,
+				CEA0045F1799273D00B6AC25 /* TCSettingsViewController.h */,
+				CEA004601799273D00B6AC25 /* TCSettingsViewController.m */,
 			);
-			name = controllers;
+			path = controlles;
 			sourceTree = "<group>";
 		};
-		CEC26C14177EE2620075F3E4 /* models */ = {
+		CEA004651799274E00B6AC25 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				CEDCFE40177761640094A09A /* SettingDayModel.h */,
-				CEDCFE41177761640094A09A /* SettingDayModel.m */,
+				CEA004681799274E00B6AC25 /* SettingDayModel.h */,
+				CEA004691799274E00B6AC25 /* SettingDayModel.m */,
+				CEA0046A1799274E00B6AC25 /* SettingDays.h */,
+				CEA0046B1799274E00B6AC25 /* SettingDays.m */,
 			);
-			name = models;
+			path = models;
 			sourceTree = "<group>";
 		};
-		CEC26C15177EE28C0075F3E4 /* views */ = {
+		CEA0046F1799275700B6AC25 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				CEDCFE3917775B950094A09A /* TCSettingsCell.h */,
-				CEDCFE3A17775B950094A09A /* TCSettingsCell.m */,
-				CEDCFE3C17775BC20094A09A /* SettingsCell.xib */,
-				CEC26C10177EE1B30075F3E4 /* TCDetailsTaskViewController.xib */,
+				CEA004701799275700B6AC25 /* SettingsCell.xib */,
+				CEA004711799275700B6AC25 /* TCDetailsTaskViewController.xib */,
+				CEA004721799275700B6AC25 /* TCSettingsCell.h */,
+				CEA004731799275700B6AC25 /* TCSettingsCell.m */,
 			);
-			name = views;
-			sourceTree = "<group>";
-		};
-		CEC56D17179805A1001CDF49 /* tools */ = {
-			isa = PBXGroup;
-			children = (
-				CEF082E4178006C0004F9B1D /* SettingDays.h */,
-				CEF082E5178006C0004F9B1D /* SettingDays.m */,
-			);
-			name = tools;
+			path = views;
 			sourceTree = "<group>";
 		};
 		CEF422B517492E8200C98394 = {
@@ -147,10 +140,9 @@
 		CEF422C717492E8200C98394 /* TrainingCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				CEC56D17179805A1001CDF49 /* tools */,
-				CEC26C15177EE28C0075F3E4 /* views */,
-				CEC26C14177EE2620075F3E4 /* models */,
-				CEC26C13177EE1E40075F3E4 /* controllers */,
+				CEA0046F1799275700B6AC25 /* views */,
+				CEA004651799274E00B6AC25 /* models */,
+				CEA004581799273D00B6AC25 /* controlles */,
 				CEF422D017492E8200C98394 /* TCAppDelegate.h */,
 				CEF422D117492E8200C98394 /* TCAppDelegate.m */,
 				CEF422C817492E8200C98394 /* Supporting Files */,
@@ -228,8 +220,8 @@
 				CEF422D417492E8200C98394 /* Default.png in Resources */,
 				CEF422D617492E8200C98394 /* Default@2x.png in Resources */,
 				CEF422D817492E8200C98394 /* Default-568h@2x.png in Resources */,
-				CEDCFE3D17775BC20094A09A /* SettingsCell.xib in Resources */,
-				CEC26C12177EE1B30075F3E4 /* TCDetailsTaskViewController.xib in Resources */,
+				CEA004741799275700B6AC25 /* SettingsCell.xib in Resources */,
+				CEA004751799275700B6AC25 /* TCDetailsTaskViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,13 +234,13 @@
 			files = (
 				CEF422CE17492E8200C98394 /* main.m in Sources */,
 				CEF422D217492E8200C98394 /* TCAppDelegate.m in Sources */,
-				CEDCFE35177741A30094A09A /* TCListDaysViewController.m in Sources */,
-				CEDCFE38177757290094A09A /* TCSettingsViewController.m in Sources */,
-				CEDCFE3B17775B950094A09A /* TCSettingsCell.m in Sources */,
-				CEDCFE42177761640094A09A /* SettingDayModel.m in Sources */,
-				CEDE2D04177ECACB00ED3486 /* TCListTasksViewController.m in Sources */,
-				CEC26C11177EE1B30075F3E4 /* TCDetailsTaskViewController.m in Sources */,
-				CEF082E6178006C0004F9B1D /* SettingDays.m in Sources */,
+				CEA004611799273D00B6AC25 /* TCDetailsTaskViewController.m in Sources */,
+				CEA004621799273D00B6AC25 /* TCListDaysViewController.m in Sources */,
+				CEA004631799273D00B6AC25 /* TCListTasksViewController.m in Sources */,
+				CEA004641799273D00B6AC25 /* TCSettingsViewController.m in Sources */,
+				CEA0046D1799274E00B6AC25 /* SettingDayModel.m in Sources */,
+				CEA0046E1799274E00B6AC25 /* SettingDays.m in Sources */,
+				CEA004761799275700B6AC25 /* TCSettingsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
