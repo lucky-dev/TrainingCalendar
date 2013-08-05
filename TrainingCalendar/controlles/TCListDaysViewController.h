@@ -10,13 +10,17 @@
 
 @class TCSettingsViewController;
 @class TCListTasksViewController;
+@class SettingDays;
 @protocol TCSettingsDelegate;
 
 @interface TCListDaysViewController : UITableViewController<TCSettingsDelegate>
 {
     @private
-    TCSettingsViewController *mSettingsViewController;
-    TCListTasksViewController *mListTasksViewController;
+    TCSettingsViewController* mSettingsViewController;
+    TCListTasksViewController* mListTasksViewController;
+    UIBarButtonItem* mSettingButton;
+    UIBarButtonItem* mBackButton;
+    SettingDays* mSettingDays;
 }
 
 @end

@@ -10,22 +10,25 @@
 
 @implementation SettingDayModel
 
-- (SettingDayModel *)initWithName:(NSString *) nameDay andState:(BOOL)state
+- (SettingDayModel*) initWithName: (NSString*)nameDay code: (NSInteger)codeDay andState: (BOOL)state
 {
     self = [super init];
     
     if (self)
     {
         self.nameDay = nameDay;
+        self.codeDay = codeDay;
         self.status = state;
     }
     
     return self;
 }
 
-- (void)dealloc
+- (void) dealloc
 {
     NSLog(@"dealloc %@", self.nameDay);
+    
+    self.nameDay = nil;
     
     [super dealloc];
 }

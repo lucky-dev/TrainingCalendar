@@ -7,11 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "../TCDataTransfer.h"
 
-@interface TCListTasksViewController : UITableViewController
+@class TCDetailsTaskViewController;
+@class DBManager;
+
+@interface TCListTasksViewController : UITableViewController<TCDataTransfer>
 {
     @private
-    NSArray *mTasks;
+    TCDetailsTaskViewController* mDetailsTaskViewController;
+    UIBarButtonItem* mAddTaskButton;
+    UIBarButtonItem* mBackButton;
+    DBManager* mDbManager;
+    int mIdDay;
 }
 
 @end

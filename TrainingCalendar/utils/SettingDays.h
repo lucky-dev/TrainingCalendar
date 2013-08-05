@@ -10,8 +10,8 @@
 
 @interface SettingDays : NSObject
 
-+ (SettingDays *)sharedManager;
-- (NSArray *)getDaysOnlyEnabled:(BOOL) flag;
-- (void)saveDays:(NSArray *) array;
++ (SettingDays*) sharedManager;
+- (NSArray*) getDaysOnlyEnabled: (BOOL)flag;
+- (void) saveDays: (NSArray*)array;
 
 @end

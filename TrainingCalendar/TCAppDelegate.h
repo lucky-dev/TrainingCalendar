@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class TCListDaysViewController;
+@class TCCurrentTasksViewController;
 
 @interface TCAppDelegate : UIResponder <UIApplicationDelegate>
 {
     @private
-    UINavigationController *mNavigation;
-    TCListDaysViewController *mListDaysController;
+    UINavigationController* mNavigation;
+    TCCurrentTasksViewController* mCurrentTasksController;
 }
 
-@property (retain, nonatomic) UIWindow *window;
+@property (retain, nonatomic) UIWindow* window;
 
 @end

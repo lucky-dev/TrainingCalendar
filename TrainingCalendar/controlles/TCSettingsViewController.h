@@ -9,20 +9,22 @@
 #import <UIKit/UIKit.h>
 
 @protocol TCSettingsDelegate;
+@class SettingDays;
 
 @interface TCSettingsViewController : UITableViewController<UIAlertViewDelegate>
 {
     @private
-    NSArray *mDays;
+    NSArray* mDays;
     UISwitch* mSwitchDay;
+    SettingDays* mSettingDays;
 }
 
-@property(assign, nonatomic) id<TCSettingsDelegate> delegate;
+@property (assign, nonatomic) id<TCSettingsDelegate> delegate;
 
 @end
 
 @protocol TCSettingsDelegate <NSObject>
 
-- (void)didUpdatingDay:(NSString* ) nameDay andStatus:(BOOL) status;
+- (void)didUpdatingDay: (NSString*)nameDay andStatus: (BOOL)status;
 
 @end

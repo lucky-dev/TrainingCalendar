@@ -10,7 +10,7 @@
 
 @interface TCSettingsCell : UITableViewCell
 
-@property (retain, nonatomic) IBOutlet UILabel *nameDay;
-@property (retain, nonatomic) IBOutlet UISwitch *switchDay;
+@property (retain, nonatomic) IBOutlet UILabel* nameDay;
+@property (retain, nonatomic) IBOutlet UISwitch* switchDay;
 
 @end

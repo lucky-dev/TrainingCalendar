@@ -10,9 +10,10 @@
 
 @interface SettingDayModel : NSObject
 
-@property(retain, nonatomic) NSString *nameDay;
-@property(assign, nonatomic) BOOL status;
+@property (retain, nonatomic) NSString* nameDay;
+@property (assign, nonatomic) NSInteger codeDay;
+@property (assign, nonatomic) BOOL status;
 
--(SettingDayModel *)initWithName:(NSString *) nameDay andState:(BOOL)state;
+- (SettingDayModel*) initWithName: (NSString*)nameDay code: (NSInteger)codeDay andState: (BOOL)state;
 
 @end
