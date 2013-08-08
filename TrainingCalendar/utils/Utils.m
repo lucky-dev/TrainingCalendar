@@ -7,6 +7,7 @@
 //
 
 #import "Utils.h"
+#import "Constants.h"
 
 @implementation Utils
 
@@ -32,5 +33,35 @@
     
     return [todayComponents weekday];
 }
+
++ (NSDate*) getDefaultDate
+{
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    NSInteger comps = (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit);
+    
+    NSDateComponents* dateComponents = [calendar components:comps fromDate: [NSDate date]];
+    [dateComponents setYear: 1970];
+    [dateComponents setMonth: 1];
+    [dateComponents setDay: 1];
+    
+    NSDate* result = [calendar dateFromComponents: dateComponents];
+    
+    return result;
+}
+
++ (NSDate*) getNowDate
+{
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    NSInteger comps = (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit);
+    
+    NSDateComponents* dateComponents = [calendar components:comps fromDate: [NSDate date]];
+    
+    NSDate* result = [calendar dateFromComponents: dateComponents];
+    
+    return result;
+}
+
 
 @end

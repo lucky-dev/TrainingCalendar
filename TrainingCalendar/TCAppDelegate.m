@@ -8,6 +8,8 @@
 
 #import "TCAppDelegate.h"
 #import "TCCurrentTasksViewController.h"
+#import "Constants.h"
+#import "Utils.h"
 
 @implementation TCAppDelegate
 
@@ -19,7 +21,7 @@
     // Override point for customization after application launch.
     
     //Set first controller
-    mCurrentTasksController = [[TCCurrentTasksViewController alloc] init];
+    mCurrentTasksController = [[TCCurrentTasksViewController alloc] initWithNibName: @"CurrentTasks" bundle: nil];
     mNavigation = [[UINavigationController alloc] initWithRootViewController:mCurrentTasksController];
     self.window.rootViewController = mNavigation;
     

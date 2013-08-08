@@ -12,5 +12,7 @@
 
 + (NSString*) getNameOfCurrentDay;
 + (NSInteger) getCodeOfCurrentDay;
++ (NSDate*) getDefaultDate;
++ (NSDate*) getNowDate;
 
 @end

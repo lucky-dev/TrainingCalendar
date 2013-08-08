@@ -12,22 +12,22 @@
 #import "DBManager.h"
 #import "TaskModel.h"
 #import "DBManager.h"
+#import "TaskManager.h"
 
 @interface TCCurrentTasksViewController ()
 
     - (void) openSettings: (id)sender;
 
-    @property (assign, nonatomic) NSArray* tasks;
+    @property (assign, nonatomic) TaskModel* task;
+    @property (assign, nonatomic) NSArray* counterTasks;
 
 @end
 
-static NSString* CellIdentifier = @"CellTask";
-
 @implementation TCCurrentTasksViewController
 
-- (id) initWithStyle: (UITableViewStyle)style
+- (id) initWithNibName: (NSString*)nibNameOrNil bundle: (NSBundle*)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
         // Custom initialization
@@ -37,9 +37,9 @@ static NSString* CellIdentifier = @"CellTask";
         
         mDaysButton = [[UIBarButtonItem alloc]
                        initWithTitle: @"Days"
-                            style: UIBarButtonItemStylePlain
-                            target:self
-                            action:@selector(openSettings:)];
+                       style: UIBarButtonItemStylePlain
+                       target:self
+                       action:@selector(openSettings:)];
         
         mBackButton = [[UIBarButtonItem alloc]
                        initWithTitle:@"Back"
@@ -50,7 +50,7 @@ static NSString* CellIdentifier = @"CellTask";
         self.navigationItem.rightBarButtonItem = mDaysButton;
         self.navigationItem.backBarButtonItem = mBackButton;
         
-        mDbManager = [DBManager sharedManager];
+        mTaskManager = [TaskManager sharedManager];
     }
     return self;
 }
@@ -58,9 +58,6 @@ static NSString* CellIdentifier = @"CellTask";
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self.tableView registerClass:[UITableViewCell class]
-           forCellReuseIdentifier:CellIdentifier];
 }
 
 - (void) didReceiveMemoryWarning
@@ -71,63 +68,39 @@ static NSString* CellIdentifier = @"CellTask";
 
 - (void) viewWillAppear: (BOOL)animated
 {
-    self.tasks = [mDbManager getTasksByDay:[Utils getCodeOfCurrentDay]];
+    self.task = [mTaskManager getTaskByCodeDay: [Utils getCodeOfCurrentDay]];
     
-    [self.tableView reloadData];
+    self.nameTask.text = self.task.nameTask;
     
     [super viewWillAppear:animated];
 }
 
-- (void) setTasks: (NSArray*)value
+- (void) setTask: (TaskModel*)value
 {
-    [_tasks release];
-    _tasks = value;
+    [_task release];
+    _task = value;
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger) numberOfSectionsInTableView: (UITableView*)tableView
+- (void) setCounterTasks:(NSArray *) value
 {
-    // Return the number of sections.
-    return 1;
+    [_counterTasks release];
+    _counterTasks = value;
 }
 
-- (NSInteger) tableView: (UITableView*)tableView numberOfRowsInSection: (NSInteger)section
-{
-    // Return the number of rows in the section.
-    return [self.tasks count];
-}
-
-- (UITableViewCell*) tableView: (UITableView*)tableView cellForRowAtIndexPath: (NSIndexPath*)indexPath
-{
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    TaskModel* taskItem = [self.tasks objectAtIndex:indexPath.row];
-    
-    // Configure the cell...
-    cell.textLabel.text = taskItem.nameTask;
-    
-    return cell;
-}
-
-#pragma mark - Table view delegate
-
-- (void) tableView: (UITableView*)tableView didSelectRowAtIndexPath: (NSIndexPath*)indexPath
-{
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-//Helper methods
+#pragma mark - Helper methods
 - (void) openSettings: (id)sender
 {
     [self.navigationController pushViewController:mListDaysController animated:YES];
 }
-//~~~
+
+#pragma mark -
 
 - (void) dealloc
 {
     self.navigationItem.rightBarButtonItem = nil;
     self.navigationItem.backBarButtonItem = nil;
+    
+    self.task = nil;
     
     [mDaysButton release];
     [mBackButton release];

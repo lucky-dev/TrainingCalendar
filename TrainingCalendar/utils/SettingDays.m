@@ -65,6 +65,8 @@ static SettingDays* sharedSettingDays = nil;
     {
         if (!flag)
         {
+            [result release];
+            
             return [self getEmptyArrayDays];
         }
     }

@@ -9,15 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @class TCListDaysViewController;
-@class DBManager;
+@class TaskManager;
 
-@interface TCCurrentTasksViewController : UITableViewController
+@interface TCCurrentTasksViewController : UIViewController
 {
     @private
     TCListDaysViewController* mListDaysController;
     UIBarButtonItem* mDaysButton;
     UIBarButtonItem* mBackButton;
-    DBManager* mDbManager;
+    TaskManager* mTaskManager;
 }
+
+@property (retain, nonatomic) IBOutlet UILabel *nameTask;
 
 @end

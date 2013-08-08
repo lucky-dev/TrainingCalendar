@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE08D80017B2A14D004D9744 /* TaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE08D7FF17B2A14D004D9744 /* TaskManager.m */; };
 		CEA004611799273D00B6AC25 /* TCDetailsTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0045A1799273D00B6AC25 /* TCDetailsTaskViewController.m */; };
 		CEA004621799273D00B6AC25 /* TCListDaysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0045C1799273D00B6AC25 /* TCListDaysViewController.m */; };
 		CEA004631799273D00B6AC25 /* TCListTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0045E1799273D00B6AC25 /* TCListTasksViewController.m */; };
 		CEA004641799273D00B6AC25 /* TCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA004601799273D00B6AC25 /* TCSettingsViewController.m */; };
 		CEA0046D1799274E00B6AC25 /* SettingDayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA004691799274E00B6AC25 /* SettingDayModel.m */; };
 		CEA004741799275700B6AC25 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA004701799275700B6AC25 /* SettingsCell.xib */; };
-		CEA004751799275700B6AC25 /* TCDetailsTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA004711799275700B6AC25 /* TCDetailsTaskViewController.xib */; };
+		CEA004751799275700B6AC25 /* DetailsTask.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA004711799275700B6AC25 /* DetailsTask.xib */; };
 		CEA004761799275700B6AC25 /* TCSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA004731799275700B6AC25 /* TCSettingsCell.m */; };
+		CEC6B53017B2D9C600452047 /* CurrentTasks.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC6B52F17B2D9C600452047 /* CurrentTasks.xib */; };
 		CECD516C179AA35700CF2001 /* SettingDays.m in Sources */ = {isa = PBXBuildFile; fileRef = CECD516B179AA35700CF2001 /* SettingDays.m */; };
 		CECD516F179ACA2000CF2001 /* TCCurrentTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECD516E179ACA2000CF2001 /* TCCurrentTasksViewController.m */; };
 		CED16081179C171E00431539 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CED16080179C171E00431539 /* DBManager.m */; };
@@ -33,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE08D7FE17B2A14D004D9744 /* TaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskManager.h; sourceTree = "<group>"; };
+		CE08D7FF17B2A14D004D9744 /* TaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskManager.m; sourceTree = "<group>"; };
 		CE28042617AA7191002A502F /* TCDataTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDataTransfer.h; sourceTree = "<group>"; };
 		CEA004591799273D00B6AC25 /* TCDetailsTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDetailsTaskViewController.h; sourceTree = "<group>"; };
 		CEA0045A1799273D00B6AC25 /* TCDetailsTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCDetailsTaskViewController.m; sourceTree = "<group>"; };
@@ -45,9 +49,10 @@
 		CEA004681799274E00B6AC25 /* SettingDayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingDayModel.h; sourceTree = "<group>"; };
 		CEA004691799274E00B6AC25 /* SettingDayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingDayModel.m; sourceTree = "<group>"; };
 		CEA004701799275700B6AC25 /* SettingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
-		CEA004711799275700B6AC25 /* TCDetailsTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCDetailsTaskViewController.xib; sourceTree = "<group>"; };
+		CEA004711799275700B6AC25 /* DetailsTask.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsTask.xib; sourceTree = "<group>"; };
 		CEA004721799275700B6AC25 /* TCSettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSettingsCell.h; sourceTree = "<group>"; };
 		CEA004731799275700B6AC25 /* TCSettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSettingsCell.m; sourceTree = "<group>"; };
+		CEC6B52F17B2D9C600452047 /* CurrentTasks.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentTasks.xib; sourceTree = "<group>"; };
 		CECD516A179AA35700CF2001 /* SettingDays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingDays.h; sourceTree = "<group>"; };
 		CECD516B179AA35700CF2001 /* SettingDays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingDays.m; sourceTree = "<group>"; };
 		CECD516D179ACA2000CF2001 /* TCCurrentTasksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCurrentTasksViewController.h; sourceTree = "<group>"; };
@@ -122,9 +127,10 @@
 			isa = PBXGroup;
 			children = (
 				CEA004701799275700B6AC25 /* SettingsCell.xib */,
-				CEA004711799275700B6AC25 /* TCDetailsTaskViewController.xib */,
+				CEA004711799275700B6AC25 /* DetailsTask.xib */,
 				CEA004721799275700B6AC25 /* TCSettingsCell.h */,
 				CEA004731799275700B6AC25 /* TCSettingsCell.m */,
+				CEC6B52F17B2D9C600452047 /* CurrentTasks.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -139,6 +145,8 @@
 				CED1607F179C171E00431539 /* DBManager.h */,
 				CED16080179C171E00431539 /* DBManager.m */,
 				CEDC77D917AE9A9C006116F7 /* Constants.h */,
+				CE08D7FE17B2A14D004D9744 /* TaskManager.h */,
+				CE08D7FF17B2A14D004D9744 /* TaskManager.m */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -257,7 +265,8 @@
 				CEF422D617492E8200C98394 /* Default@2x.png in Resources */,
 				CEF422D817492E8200C98394 /* Default-568h@2x.png in Resources */,
 				CEA004741799275700B6AC25 /* SettingsCell.xib in Resources */,
-				CEA004751799275700B6AC25 /* TCDetailsTaskViewController.xib in Resources */,
+				CEA004751799275700B6AC25 /* DetailsTask.xib in Resources */,
+				CEC6B53017B2D9C600452047 /* CurrentTasks.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +290,7 @@
 				CEDECC68179AEA3A00D2EBBC /* Utils.m in Sources */,
 				CED16081179C171E00431539 /* DBManager.m in Sources */,
 				CED2E166179D0EF3003C6EB9 /* TaskModel.m in Sources */,
+				CE08D80017B2A14D004D9744 /* TaskManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

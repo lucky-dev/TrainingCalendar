@@ -10,6 +10,7 @@
 
 @protocol TCSettingsDelegate;
 @class SettingDays;
+@class DBManager;
 
 @interface TCSettingsViewController : UITableViewController<UIAlertViewDelegate>
 {
@@ -17,6 +18,7 @@
     NSArray* mDays;
     UISwitch* mSwitchDay;
     SettingDays* mSettingDays;
+    DBManager* mDbManager;
 }
 
 @property (assign, nonatomic) id<TCSettingsDelegate> delegate;

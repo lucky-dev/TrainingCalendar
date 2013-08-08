@@ -89,11 +89,11 @@ static sqlite3* database = NULL;
                 int countRepeat = sqlite3_column_int(statement, 5);
                 
                 TaskModel* task = [[TaskModel alloc] initWithIdentifier: identifier
-                                                                        order: order
-                                                                        codeDay: codeDay
-                                                                        name:[ NSString stringWithUTF8String:nameTask]
-                                                                        description: [NSString stringWithUTF8String:descriptionTask]
-                                                                        andCountRepeat: countRepeat];
+                                                                  order: order
+                                                                codeDay: codeDay
+                                                                   name: [NSString stringWithUTF8String:nameTask]
+                                                            description: [NSString stringWithUTF8String:descriptionTask]
+                                                         andCountRepeat: countRepeat];
                 
                 [result addObject:task];
                 
@@ -182,6 +182,40 @@ static sqlite3* database = NULL;
     if (sqlite3_step(stmt) == SQLITE_DONE)
     {
         NSLog(@"Updated row with id: %d", task.identifier);
+    }
+    
+    sqlite3_finalize(stmt);
+}
+
+- (void) removeTaskById: (NSInteger)idTask
+{
+    NSString* query = [NSString stringWithFormat:@"DELETE FROM tasks WHERE id=%d", idTask];
+    
+    sqlite3_stmt* stmt;
+    
+    if (sqlite3_prepare_v2(database, [query UTF8String], -1, &stmt, NULL) == SQLITE_OK)
+    {
+        if (sqlite3_step(stmt) == SQLITE_DONE)
+        {
+            NSLog(@"Removed row with id: %d", idTask);
+        }
+    }
+    
+    sqlite3_finalize(stmt);
+}
+
+- (void) removeTaskByCodeDay: (NSInteger)codeDay
+{
+    NSString* query = [NSString stringWithFormat:@"DELETE FROM tasks WHERE code_day=%d", codeDay];
+    
+    sqlite3_stmt* stmt;
+    
+    if (sqlite3_prepare_v2(database, [query UTF8String], -1, &stmt, NULL) == SQLITE_OK)
+    {
+        if (sqlite3_step(stmt) == SQLITE_DONE)
+        {
+            NSLog(@"Removed rows by code day: %d", codeDay);
+        }
     }
     
     sqlite3_finalize(stmt);

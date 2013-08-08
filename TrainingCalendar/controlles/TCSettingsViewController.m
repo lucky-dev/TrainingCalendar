@@ -10,12 +10,15 @@
 #import "TCSettingsCell.h"
 #import "SettingDayModel.h"
 #import "SettingDays.h"
+#import "DBManager.h"
 
 #define kOkButton 0
 
 static NSString* CellIdentifier = @"CellSetting";
 
 @interface TCSettingsViewController ()
+
+    - (void) saveChangedDay;
 
     @property (assign, nonatomic) UIAlertView* alert;
 
@@ -32,6 +35,7 @@ static NSString* CellIdentifier = @"CellSetting";
         self.title = @"Settings";
         
         mSettingDays = [SettingDays sharedManager];
+        mDbManager = [DBManager sharedManager];
         
         mDays = [mSettingDays getDaysOnlyEnabled:NO];
     }
@@ -102,15 +106,22 @@ static NSString* CellIdentifier = @"CellSetting";
 {
     mSwitchDay = sender;
     
-    self.alert = [[UIAlertView alloc]
-                  initWithTitle:@"Change day"
-                  message:@"Are you sure to want to change day?"
-                  delegate:self
-                  cancelButtonTitle:nil
-                  otherButtonTitles:@"Yes", @"No",
-                  nil];
+    if (!mSwitchDay.on)
+    {
+        self.alert = [[UIAlertView alloc]
+                      initWithTitle:@"Change day"
+                      message:@"Are you sure to want to change day? All tasks for the day will be removed."
+                      delegate:self
+                      cancelButtonTitle:nil
+                      otherButtonTitles:@"Yes", @"No",
+                      nil];
     
-    [self.alert show];
+        [self.alert show];
+    }
+    else
+    {
+        [self saveChangedDay];
+    }
 
 }
 
@@ -118,21 +129,28 @@ static NSString* CellIdentifier = @"CellSetting";
 {
     if (buttonIndex == kOkButton)
     {
-        int indexRow = mSwitchDay.tag;
-        
-        SettingDayModel* settingItem = [mDays objectAtIndex:indexRow];
-        settingItem.status = !settingItem.status;
-        
-        [mSettingDays saveDays:mDays];
-        
-        [self.delegate didUpdatingDay:settingItem.nameDay andStatus:settingItem.status];
-        
-        [self.tableView reloadData];
+        [self saveChangedDay];
     }
     else
     {
         [mSwitchDay setOn:!mSwitchDay.on animated:YES];
     }
+}
+
+- (void) saveChangedDay
+{
+    int indexRow = mSwitchDay.tag;
+    
+    SettingDayModel* settingItem = [mDays objectAtIndex:indexRow];
+    settingItem.status = !settingItem.status;
+    
+    [mSettingDays saveDays:mDays];
+    
+    [mDbManager removeTaskByCodeDay: settingItem.codeDay];
+    
+    [self.delegate didUpdatingDay:settingItem.nameDay andStatus:settingItem.status];
+    
+    [self.tableView reloadData];
 }
 
 - (void) dealloc

@@ -34,7 +34,7 @@ static NSString* CellIdentifier = @"CellTask";
         // Custom initialization
         self.title = @"Tasks";
         
-        mDetailsTaskViewController = [[TCDetailsTaskViewController alloc] init];
+        mDetailsTaskViewController = [[TCDetailsTaskViewController alloc] initWithNibName: @"DetailsTask" bundle: nil];
         
         mAddTaskButton = [[UIBarButtonItem alloc]
                           initWithBarButtonSystemItem:UIBarButtonSystemItemAdd

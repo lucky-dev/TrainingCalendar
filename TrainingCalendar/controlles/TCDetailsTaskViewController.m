@@ -17,6 +17,7 @@
 @interface TCDetailsTaskViewController ()
 
 @property (assign, nonatomic) TaskModel* currentTask;
+@property (assign, nonatomic) UIAlertView* alert;
 
 @end
 
@@ -49,16 +50,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    [self.pickerDay selectRow: [Utils getCodeOfCurrentDay] - 1
-                  inComponent: 0
-                     animated: NO];
 }
 
 - (void) didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) setAlert: (UIAlertView*)alert
+{
+    [_alert release];
+    _alert = alert;
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -74,6 +77,16 @@
         self.countRepeat.text = [NSString stringWithFormat:@"%d", self.currentTask.countRepeat];
         
         [self.pickerDay selectRow: self.currentTask.codeDay - 1
+                      inComponent: 0
+                         animated: NO];
+    }
+    else
+    {
+        self.nameTask.text = @"";
+        self.descriptionTask.text = @"";
+        self.countRepeat.text = @"";
+        
+        [self.pickerDay selectRow: [Utils getCodeOfCurrentDay] - 1
                       inComponent: 0
                          animated: NO];
     }
@@ -113,10 +126,18 @@
 
 - (IBAction) deleteTask: (id)sender
 {
+    [mDbManager removeTaskById: mIdTask];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) saveTask: (id)sender
 {
+    if (![self isValidFields])
+    {
+        return;
+    }
+    
     SettingDayModel* dayModel = mDays[[self.pickerDay selectedRowInComponent: 0]];
     
     self.currentTask = [[TaskModel alloc] initWithIdentifier: self.currentTask.identifier
@@ -144,10 +165,47 @@
     mIdTask = [[data valueForKey: ID_TASK] intValue];
 }
 
+- (BOOL) isValidFields
+{
+    BOOL flag = YES;
+    
+    NSString* msg = nil;
+    
+    if ([self.nameTask.text length] == 0)
+    {
+        msg = @"Name of task can't be empty";
+        flag = NO;
+    } else if ([self.descriptionTask.text length] == 0)
+    {
+        msg = @"Description of task can't be empty";
+        flag = NO;
+    } else if ([self.countRepeat.text length] == 0)
+    {
+        msg = @"Count repeat can't be empty";
+        flag = NO;
+    }
+    
+    if (!flag)
+    {
+        self.alert = [[UIAlertView alloc]
+                      initWithTitle:@"Error"
+                      message:msg
+                      delegate:self
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil,
+                      nil];
+    
+        [self.alert show];
+    }
+    
+    return flag;
+}
+
 - (void) dealloc
 {
     self.navigationItem.rightBarButtonItem = nil;
     self.currentTask = nil;
+    self.alert = nil;
     
     [mSaveTaskButton release];
     [mDays release];
