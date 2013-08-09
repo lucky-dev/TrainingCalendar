@@ -20,5 +20,6 @@
 - (TaskModel*) getTasksByIdTask: (int)idTask;
 - (void) removeTaskById: (NSInteger)idTask;
 - (void) removeTaskByCodeDay: (NSInteger)codeDay;
+- (void) updateOrderTask: (NSInteger)orderTask byId: (NSInteger)idTask;
 
 @end

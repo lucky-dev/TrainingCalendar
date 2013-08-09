@@ -179,7 +179,7 @@ static sqlite3* database = NULL;
 - (void) updateTask: (TaskModel*)task
 {    
     NSString* query = [NSString stringWithFormat:@"UPDATE tasks "
-                                                  "SET code_day=?, name=?, description=?, count_repeat=?"
+                                                  "SET code_day=?, name=?, description=?, count_repeat=? "
                                                   "WHERE id=%d", task.identifier];
     
     sqlite3_stmt* stmt;
@@ -229,6 +229,27 @@ static sqlite3* database = NULL;
         {
             NSLog(@"Removed rows by code day: %d", codeDay);
         }
+    }
+    
+    sqlite3_finalize(stmt);
+}
+
+- (void) updateOrderTask: (NSInteger)orderTask byId: (NSInteger)idTask
+{
+    NSString* query = [NSString stringWithFormat:@"UPDATE tasks "
+                       "SET order_task = ? "
+                       "WHERE id=%d", idTask];
+    
+    sqlite3_stmt* stmt;
+    
+    if (sqlite3_prepare_v2(database, [query UTF8String], -1, &stmt, NULL) == SQLITE_OK)
+    {
+        sqlite3_bind_int(stmt, 1, orderTask);
+    }
+    
+    if (sqlite3_step(stmt) == SQLITE_DONE)
+    {
+        NSLog(@"Updated row with id: %d", idTask);
     }
     
     sqlite3_finalize(stmt);

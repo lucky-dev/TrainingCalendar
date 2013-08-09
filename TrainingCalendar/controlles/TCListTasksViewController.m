@@ -34,6 +34,9 @@ static NSString* CellIdentifier = @"CellTask";
         // Custom initialization
         self.title = @"Tasks";
         
+        [self.tableView setEditing: YES animated: YES];
+        [self.tableView setAllowsSelectionDuringEditing: YES];
+        
         mDetailsTaskViewController = [[TCDetailsTaskViewController alloc] initWithNibName: @"DetailsTask" bundle: nil];
         
         mAddTaskButton = [[UIBarButtonItem alloc]
@@ -123,10 +126,71 @@ static NSString* CellIdentifier = @"CellTask";
     // Configure the cell...
     TaskModel* task = self.tasks[indexPath.row];
     
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = task.nameTask;
     
     return cell;
+}
+
+- (UITableViewCellEditingStyle) tableView:(UITableView *)tableView editingStyleForRowAtIndexPath: (NSIndexPath*)indexPath
+{
+    return UITableViewCellEditingStyleNone;
+}
+
+- (BOOL) tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath: (NSIndexPath*)indexPath
+{
+    return NO;
+}
+
+
+- (void) tableView: (UITableView*)tableView moveRowAtIndexPath: (NSIndexPath*)fromIndexPath toIndexPath: (NSIndexPath*)toIndexPath
+{
+    NSInteger currentPos = fromIndexPath.row;
+    NSInteger newPos = toIndexPath.row;
+    
+    if (currentPos != newPos)
+    {
+        TaskModel* currentTask = self.tasks[currentPos];
+        TaskModel* newTask = self.tasks[newPos];
+        
+        [mDbManager updateOrderTask: newTask.order byId: currentTask.identifier];
+        
+        if (currentPos > newPos)
+        { //Up
+            for (int i = newPos; i < currentPos; i++)
+            {
+                TaskModel* task1 = self.tasks[i];
+                TaskModel* task2 = self.tasks[i + 1];
+                
+                [mDbManager updateOrderTask: task2.order byId: task1.identifier];
+                
+                if ((i + 1) < currentPos)
+                {
+                    [mDbManager updateOrderTask: task1.order byId: task2.identifier];
+                }
+            }
+        }
+        else
+        { //Down
+            for (int i = newPos; i > currentPos; i--)
+            {
+                TaskModel* task1 = self.tasks[i];
+                TaskModel* task2 = self.tasks[i - 1];
+                
+                [mDbManager updateOrderTask: task2.order byId: task1.identifier];
+                
+                if ((i - 1) > currentPos)
+                {
+                    [mDbManager updateOrderTask: task1.order byId: task2.identifier];
+                }
+            }
+        }
+        
+        self.tasks = [mDbManager getTasksByDay: mIdDay];
+        
+        [self.tableView reloadData];
+    }
+    
 }
 
 #pragma mark - Table view delegate
