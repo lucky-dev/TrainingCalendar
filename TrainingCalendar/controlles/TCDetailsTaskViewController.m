@@ -18,6 +18,7 @@
 
 @property (assign, nonatomic) TaskModel* currentTask;
 @property (assign, nonatomic) UIAlertView* alert;
+@property (assign, nonatomic) NSArray* days;
 
 @end
 
@@ -66,6 +67,8 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    self.days = [mSettingDays getDaysOnlyEnabled:YES];
+    
     self.deleteTask.hidden = (isEditMode ? NO : YES);
     
     if (isEditMode)
@@ -98,6 +101,12 @@
 {
     [_currentTask release];
     _currentTask = value;
+}
+
+- (void) setDays: (NSArray*)value
+{
+    [_days release];
+    _days = value;
 }
 
 -  (NSInteger) numberOfComponentsInPickerView: (UIPickerView*)pickerView
@@ -185,6 +194,19 @@
         flag = NO;
     }
     
+    for (int i = 0; i < self.days.count; i++)
+    {
+        SettingDayModel* dayModel = mDays[[self.pickerDay selectedRowInComponent: 0]];
+        
+        if (![dayModel status])
+        {
+            msg = [NSString stringWithFormat: @"Turn on %@ in settings", dayModel.nameDay];
+            flag = NO;
+            
+            break;
+        }
+    }
+    
     if (!flag)
     {
         self.alert = [[UIAlertView alloc]
@@ -206,6 +228,7 @@
     self.navigationItem.rightBarButtonItem = nil;
     self.currentTask = nil;
     self.alert = nil;
+    self.days = nil;
     
     [mSaveTaskButton release];
     [mDays release];

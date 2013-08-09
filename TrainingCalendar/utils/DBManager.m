@@ -73,7 +73,7 @@ static sqlite3* database = NULL;
     NSMutableArray* result = [[NSMutableArray alloc] init];
     if (database != NULL)
     {
-        NSString* query = [NSString stringWithFormat:@"SELECT * FROM tasks WHERE code_day=%d", codeDay];
+        NSString* query = [NSString stringWithFormat:@"SELECT * FROM tasks WHERE code_day=%d ORDER BY order_task ASC", codeDay];
     
         sqlite3_stmt* statement;
         
@@ -110,7 +110,7 @@ static sqlite3* database = NULL;
     TaskModel* result = [[TaskModel alloc] init];
     if (database != NULL)
     {
-        NSString* query = [NSString stringWithFormat:@"SELECT * FROM tasks WHERE id=%d", idTask];
+        NSString* query = [NSString stringWithFormat:@"SELECT * FROM tasks WHERE id=%d ORDER BY order_task ASC", idTask];
         
         sqlite3_stmt* statement;
         
@@ -140,6 +140,20 @@ static sqlite3* database = NULL;
 
 - (void) saveTask: (TaskModel*)task
 {
+    const char* queryMaxId = "SELECT MAX(id) FROM tasks";
+    
+    sqlite3_stmt* statement;
+    
+    int maxId = 0;
+    
+    if (sqlite3_prepare_v2(database, queryMaxId, -1, &statement, NULL) == SQLITE_OK)
+    {
+        while (sqlite3_step(statement) == SQLITE_ROW)
+        {
+            maxId = sqlite3_column_int(statement, 0);
+        }
+    }
+    
     const char* update = "INSERT INTO tasks "
                          "(order_task, code_day, name, description, count_repeat) VALUES (?, ?, ?, ?, ?)";
     
@@ -147,7 +161,7 @@ static sqlite3* database = NULL;
     
     if (sqlite3_prepare_v2(database, update, -1, &stmt, NULL) == SQLITE_OK)
     {
-        sqlite3_bind_int(stmt, 1, task.order);
+        sqlite3_bind_int(stmt, 1, maxId + 1);
         sqlite3_bind_int(stmt, 2, task.codeDay);
         sqlite3_bind_text(stmt, 3, [task.nameTask UTF8String], -1, NULL);
         sqlite3_bind_text(stmt, 4, [task.descriptionTask UTF8String], -1, NULL);
@@ -165,18 +179,17 @@ static sqlite3* database = NULL;
 - (void) updateTask: (TaskModel*)task
 {    
     NSString* query = [NSString stringWithFormat:@"UPDATE tasks "
-                                                  "SET order_task=?, code_day=?, name=?, description=?, count_repeat=?"
+                                                  "SET code_day=?, name=?, description=?, count_repeat=?"
                                                   "WHERE id=%d", task.identifier];
     
     sqlite3_stmt* stmt;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &stmt, NULL) == SQLITE_OK)
     {
-        sqlite3_bind_int(stmt, 1, task.order);
-        sqlite3_bind_int(stmt, 2, task.codeDay);
-        sqlite3_bind_text(stmt, 3, [task.nameTask UTF8String], -1, NULL);
-        sqlite3_bind_text(stmt, 4, [task.descriptionTask UTF8String], -1, NULL);
-        sqlite3_bind_int(stmt, 5, task.countRepeat);
+        sqlite3_bind_int(stmt, 1, task.codeDay);
+        sqlite3_bind_text(stmt, 2, [task.nameTask UTF8String], -1, NULL);
+        sqlite3_bind_text(stmt, 3, [task.descriptionTask UTF8String], -1, NULL);
+        sqlite3_bind_int(stmt, 4, task.countRepeat);
     }
     
     if (sqlite3_step(stmt) == SQLITE_DONE)
