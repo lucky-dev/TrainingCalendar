@@ -194,17 +194,12 @@
         flag = NO;
     }
     
-    for (int i = 0; i < self.days.count; i++)
-    {
-        SettingDayModel* dayModel = mDays[[self.pickerDay selectedRowInComponent: 0]];
+    SettingDayModel* dayModel = mDays[[self.pickerDay selectedRowInComponent: 0]];
         
-        if (![dayModel status])
-        {
-            msg = [NSString stringWithFormat: @"Turn on %@ in settings", dayModel.nameDay];
-            flag = NO;
-            
-            break;
-        }
+    if (![dayModel status])
+    {
+        msg = [NSString stringWithFormat: @"Turn on %@ in settings", dayModel.nameDay];
+        flag = NO;
     }
     
     if (!flag)
